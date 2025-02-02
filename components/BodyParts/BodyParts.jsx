@@ -13,12 +13,12 @@ export default function BodyParts() {
       <Text style={{ fontSize: hp(3) }} className="font-semibold text-neutral-700">
         Excersice
       </Text>
-
       <FlatList
         data={bodyParts}
         numColumns={2}
         keyExtractor={(item) => item.name}
         showsVerticalScrollIndicator={false}
+        scrollEnabled={false}
         contentContainerStyle={{ paddingBottom: 50, paddingTop: 20 }}
         columnWrapperStyle={{ justifyContent: 'space-between' }}
         renderItem={({ item, index }) => (

@@ -2,19 +2,19 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { fetchExercisesByBodyPart } from "../api/exerciseDb";
-import { dummyExercises } from "../constants";
+import { IS_DEV } from "../constants";
+import backWorkoutMock from '../mock/back-workouts.json'
 import { StatusBar } from 'expo-status-bar';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ExerciseList from '../components/ExerciseList/ExerciseList';
-import { ScrollView } from 'react-native-virtualized-view';
 import ExerciseListSkeleton from '../components/ExerciseList/ExerciseListSkeleton';
 
 export default function exercises() {
     const router = useRouter();
     const item = useLocalSearchParams();
 
-    const [exercises, setExercises] = useState(dummyExercises);
+    const [exercises, setExercises] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -23,7 +23,11 @@ export default function exercises() {
             setTimeout(() => {
                 setLoading(false)
             }, 500);
-            // getExercises(item.name);
+            if (IS_DEV) {
+                setExercises(backWorkoutMock);
+            } else {
+                getExercises(item.name);
+            }
         }
     }, [item])
 
@@ -35,7 +39,7 @@ export default function exercises() {
     }
     
     return (
-        <ScrollView>
+        <View>
             <StatusBar style="light" />
             <Image
                 source={item.image}
@@ -63,6 +67,6 @@ export default function exercises() {
                     {loading ? <ExerciseListSkeleton /> : <ExerciseList data={exercises} />}
                 </View>
             </View>
-        </ScrollView>
+        </View>
     )
 }

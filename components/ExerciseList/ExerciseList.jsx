@@ -29,6 +29,8 @@ export default function ExerciseList({ data }) {
 }
 
 const ExerciseCard = ({ item, index, router }) => {
+    console.log('item---', item.gifUrl);
+    
     return (
         <Animated.View key={index} entering={FadeInDown.duration(400).delay(index*200).springify()}>
             <TouchableOpacity
