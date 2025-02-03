@@ -7,6 +7,7 @@ import backWorkoutMock from '../mock/back-workouts.json'
 import { StatusBar } from 'expo-status-bar';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { ScrollView } from 'react-native-virtualized-view';
 import ExerciseList from '../components/ExerciseList/ExerciseList';
 import ExerciseListSkeleton from '../components/ExerciseList/ExerciseListSkeleton';
 
@@ -49,7 +50,7 @@ export default function exercises() {
             <TouchableOpacity
                 onPress={() => router.back()}
                 className="bg-rose-500 mx-auto absolute rounded-full justify-center items-center pr-1 ml-3"
-                style={{ height: hp(5.5), width: hp(5.5), marginTop: hp(7)}}
+                style={{ height: hp(5.5), width: hp(5.5), marginTop: hp(7) }}
             >
                 <Ionicons
                     name="caret-back-outline"
@@ -57,10 +58,9 @@ export default function exercises() {
                     color="white"
                 />
             </TouchableOpacity>
-
             {/* exercises  */}
             <View className="mx-4 space-y-3 mt-4">
-                <Text style={{fontSize: hp(3)}} className="font-semibold text-neutral-700 capitalize">
+                <Text style={{ fontSize: hp(3) }} className="font-semibold text-neutral-700 capitalize">
                     {item.name} exercises
                 </Text>
                 <View className="mb-10">

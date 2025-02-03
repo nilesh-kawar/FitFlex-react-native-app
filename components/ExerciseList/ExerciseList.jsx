@@ -4,7 +4,6 @@ import { useRouter } from 'expo-router'
 import { Image } from 'expo-image'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Animated, { FadeInDown } from 'react-native-reanimated'
-
 export default function ExerciseList({ data }) {
     const router = useRouter()
     return (
@@ -27,14 +26,11 @@ export default function ExerciseList({ data }) {
         </View>
     )
 }
-
 const ExerciseCard = ({ item, index, router }) => {
-    console.log('item---', item.gifUrl);
-    
     return (
-        <Animated.View key={index} entering={FadeInDown.duration(400).delay(index*200).springify()}>
+        <Animated.View key={index} entering={FadeInDown.duration(400).delay(index * 200).springify()}>
             <TouchableOpacity
-                onPress={() => router.push({pathname: '/exerciseDetails', params: item})}
+                onPress={() => router.push({ pathname: '/exerciseDetails', params: item })}
                 className="flex py-3 space-y-2"
             >
                 <View className='shadow-2xl'>

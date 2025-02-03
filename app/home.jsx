@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import ImageSlider from '../components/ImageSlider/ImageSlider';
 import BodyParts from '../components/BodyParts/BodyParts';
 import AiWorkout from '../components/AiWorkout/AiWorkout';
-
+import { ScrollView } from 'react-native-virtualized-view';
 
 
 export default function Home() {
@@ -31,13 +31,13 @@ export default function Home() {
                         className="font-bold tracking-wider text-stone-700"
                     >
                         READY TO
-                    </Text>
-                    <Text
+                    </Text>*/}
+                    {/* <Text
                         style={{ fontSize: hp(4.5) }}
                         className="font-bold tracking-wider text-rose-500"
                     >
                         WORKOUT
-                    </Text> */}
+                    </Text>  */}
                 </View>
 
                 <View className="flex justify-center items-center space-y-2">
